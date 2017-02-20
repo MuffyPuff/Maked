@@ -1,2 +1,0 @@
-# Life mission:
-## Create ads!

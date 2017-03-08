@@ -2,7 +2,7 @@
 
 Resources::Resources()
 {
-    connect(this, SIGNAL(resourcesChanged()), this, SLOT(checkResources()));
+    //connect(this, SIGNAL(resourcesChanged()), this, SLOT(checkResources()));
 }
 
 void Resources::distrubuteResources()
@@ -19,6 +19,26 @@ void Resources::outputResources()
     console << "Stone\t: " << stone << "\n";
 }
 
+void Resources::updateFood(ll foodChange)
+{
+    food  += foodChange;
+}
+
+void Resources::updateWood(ll woodChange)
+{
+    wood  += woodChange;
+}
+
+void Resources::updateStone(ll stoneChange)
+{
+    stone += stoneChange;
+}
+
+void Resources::updateMoney(ll moneyChange)
+{
+    money += moneyChange;
+}
+/*
 void Resources::updateResources(ll foodChange, ll woodChange, ll stoneChange, ll moneyChange)
 {
     food  += foodChange;
@@ -27,11 +47,13 @@ void Resources::updateResources(ll foodChange, ll woodChange, ll stoneChange, ll
     money += moneyChange;
     emit resourcesChanged();
 }
-
+*/
+/*******************************
+ *           TODO              *
+ *******************************/
 void Resources::checkResources()
-{/*
-    if(food  < 0) gameOver();
-    if(wood  < 0) gameOver();
-    if(money < 0) gameOver();
-    if(stone < 0) gameOver();*/
+{
+    if(food  < 0 || wood < 0 || stone < 0 || money < 0) emit gameOver();
+
 }
+

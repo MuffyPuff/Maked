@@ -10,7 +10,13 @@ CONFIG -= app_bundle
 TEMPLATE = app
 
 SOURCES += main.cpp \
-    resources.cpp
+    resources.cpp \
+    player.cpp \
+    game.cpp
 
 HEADERS += \
-    resources.h
+    resources.h \
+    player.h \
+    game.h
+
+DISTFILES +=

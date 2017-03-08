@@ -1,7 +1,6 @@
 #include <QCoreApplication>
 #include <QTextStream>
-#include "resources.h"
-
+#include "player.h"
 
 int main(int argc, char *argv[])
 {

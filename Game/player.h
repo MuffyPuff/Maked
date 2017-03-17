@@ -19,10 +19,11 @@ class Player : public QObject
     Q_OBJECT
     Resources resources;
     ResourceType resourceType;
+    qint8 socketID;
 public:
     explicit Player(QObject *parent = 0);
     void setResource(ResourceType type);
-
+    void setID(qint8 id) {socketID = (id);}
 signals:
 
 public slots:

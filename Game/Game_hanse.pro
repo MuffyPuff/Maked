@@ -1,6 +1,6 @@
 QT += core
 QT -= gui
-
+QT += network
 CONFIG += c++11
 
 TARGET = Game_hanse
@@ -12,11 +12,15 @@ TEMPLATE = app
 SOURCES += main.cpp \
     resources.cpp \
     player.cpp \
-    game.cpp
+    game.cpp \
+    trade.cpp \
+    tcphandler.cpp
 
 HEADERS += \
     resources.h \
     player.h \
-    game.h
+    game.h \
+    trade.h \
+    tcphandler.h
 
 DISTFILES +=

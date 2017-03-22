@@ -16,7 +16,7 @@ public:
 signals:
 
 public slots:
-    //void instructionRecieved(Player *player, );
+    void createTrade(qint8 clientID, ResourceType typeRequested, ull amountRequested, ResourceType typeOffered, ull amountOffered);
     void addPlayer(qint8 id);
 };
 

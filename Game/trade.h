@@ -13,7 +13,7 @@ public:
     explicit Trade(QObject *parent = 0);
     void startTrade(Player *trader);
     void offerTrade(ResourceType requestedResource, ull requestedAmount, ResourceType offeredResource, ull offeredAmount);
-    void trade(ResourceType resource, ull type);
+    void trade(ResourceType resource, ull amount);
 
 
 signals:

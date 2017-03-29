@@ -34,6 +34,18 @@ void TcpHandler::interpretInstruction(const QJsonDocument &qson, qint8 clientID)
             break;
         case Instructions::TRADE_OFFER:
             ResourceType offeredResourceType = static_cast<ResourceType>(qson.object().take("offeredResourceType").toInt());
-            ull offeredResource = static_cast<ResourceType>(qson.object().take("offeredResource").toInt());
+            ull offeredResource = static_cast<ull>(qson.object().take("offeredResource").toInt());
+            ResourceType requestedResourceType = static_cast<ResourceType>(qson.object().take("requestedResourceType").toInt());
+            ull requestedResource = static_cast<ull>(qson.object().take("requestedResource").toInt());
+            emit createTrade(clientID, requestedResourceType, requestedResource, offeredResourceType, offeredResource);
+            break;
+        case Instructions::TRADE_ACCEPT:
+            qint8 fromPlayer = static_cast<qint8>(qson.object().take("fromPlayer").toInt());
+            emit acceptTrade(clientID, fromPlayer);
+            break;
+        case Instructions::TRADE_DECLINE:
+            qint8 fromPlayer = static_cast<qint8>(qson.object().take("fromPlayer").toInt());
+            emit declineTrade(clientID, fromPlayer);
+            break;
     }
 }

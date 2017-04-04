@@ -24,6 +24,7 @@ public:
     explicit Player(QObject *parent = 0);
     void setResource(ResourceType type);
     void setID(qint8 id) {socketID = (id);}
+    qint8 getID(){ return socketID; }
 signals:
 
 public slots:

@@ -3,6 +3,7 @@
 
 #include <QObject>
 #include "player.h"
+#include "trade.h"
 #include <QTcpServer>
 #include <QTcpSocket>
 #include <QList>
@@ -31,13 +32,18 @@ signals:
     void newPlayer(qint8);
     void newInstruction(QJsonDocument, qint8);
     void finishedTurn(qint8 clientID);
-    void createTrade(qint8 clientID, ResourceType requestedResource, ull requestedAmount, ResourceType offeredResource, ull offeredAmount);
+    void createTrade(qint8 clientID,
+                     ResourceType requestedResource,
+                     ull requestedAmount,
+                     ResourceType offeredResource,
+                     ull offeredAmount);
     void acceptTrade(qint8 clientID, qint8 fromPlayer);
     void declineTrade(qint8 clientID, qint8 fromPlayer);
 public slots:
     void newConnection();
     void readData(int);
     void interpretInstruction(const QJsonDocument& qson, qint8);
+    void sendOffer(Trade *);
 
 
 };
